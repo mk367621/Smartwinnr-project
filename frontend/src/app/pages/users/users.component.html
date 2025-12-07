@@ -1,0 +1,19 @@
+<h2>All Users</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Name</th>
+      <th>Created At</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let u of users">
+      <td>{{ u.email }}</td>
+      <td>{{ u.name || 'N/A' }}</td>
+      <td>{{ u.createdAt | date : 'short' }}</td>
+    </tr>
+  </tbody>
+</table>

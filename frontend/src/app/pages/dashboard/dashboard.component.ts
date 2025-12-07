@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AdminService } from '../../services/admin';
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,7 +16,12 @@ export class DashboardComponent implements OnInit {
   totalOrders = 0;
   totalSales = 0;
 
-  constructor(private adminService: AdminService) {}
+  constructor(
+    private adminService: AdminService,
+    private cdr: ChangeDetectorRef,
+    private router: Router,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
     this.adminService.getMetrics().subscribe({
@@ -24,6 +31,7 @@ export class DashboardComponent implements OnInit {
         this.totalUsers = data.metrics.totalUsers;
         this.totalOrders = data.metrics.totalOrders;
         this.totalSales = data.metrics.totalSales;
+        this.cdr.detectChanges();
 
         console.log('AFTER ASSIGNMENT:', this.totalUsers, this.totalOrders, this.totalSales);
       },
@@ -32,5 +40,10 @@ export class DashboardComponent implements OnInit {
         console.error('Metrics error:', err);
       },
     });
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    window.location.href = '/login';
   }
 }

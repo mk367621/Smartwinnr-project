@@ -1,0 +1,18 @@
+.sales-container {
+  padding: 40px;
+  color: white;
+}
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.coming-soon {
+  margin-top: 20px;
+  padding: 20px;
+  background: #1e293b;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 18px;
+}

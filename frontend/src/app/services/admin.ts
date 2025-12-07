@@ -22,4 +22,7 @@ export class AdminService {
   getMetrics(): Observable<any> {
     return this.http.get(`${this.API_URL}/metrics`, this.getAuthHeaders());
   }
+  getAllUsers() {
+    return this.http.get(`${this.API_URL}/getAllUsers`, this.getAuthHeaders());
+  }
 }
