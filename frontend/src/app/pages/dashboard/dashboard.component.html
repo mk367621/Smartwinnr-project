@@ -1,40 +1,26 @@
-<!-- NAVBAR -->
-<!-- <nav class="navbar">
-  <div class="nav-left">
-    <h2 class="logo">SmartWinnr Dashboard</h2>
-  </div>
+<div>
+  <
+  <div class="content-area">
+    <h1 class="content-title">Dashboard Overview</h1>
 
-  <div class="nav-right">
-    <a routerLink="/dashboard" class="nav-link active">Dashboard</a>
-    <a routerLink="/users" class="nav-link">Users</a>
-    <a routerLink="/orders" class="nav-link">Orders</a>
-    <a routerLink="/sales" class="nav-link">Sales</a>
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <h3>Total Users</h3>
+        <p class="metric-value">{{ totalUsers }}</p>
+        <p class="metric-label">Registered users</p>
+      </div>
 
-    <button class="logout-btn" (click)="logout()">Logout</button>
-  </div>
-</nav> -->
+      <div class="metric-card">
+        <h3>Total Orders</h3>
+        <p class="metric-value">{{ totalOrders }}</p>
+        <p class="metric-label">Orders placed</p>
+      </div>
 
-<!-- PAGE CONTENT -->
-<div class="content-area">
-  <h1 class="content-title">Dashboard Overview</h1>
-
-  <div class="metrics-grid">
-    <div class="metric-card">
-      <h3>Total Users</h3>
-      <p class="metric-value">{{ totalUsers }}</p>
-      <p class="metric-label">Registered users</p>
-    </div>
-
-    <div class="metric-card">
-      <h3>Total Orders</h3>
-      <p class="metric-value">{{ totalOrders }}</p>
-      <p class="metric-label">Orders placed</p>
-    </div>
-
-    <div class="metric-card">
-      <h3>Total Sales</h3>
-      <p class="metric-value">${{ totalSales }}</p>
-      <p class="metric-label">Overall revenue</p>
+      <div class="metric-card">
+        <h3>Total Sales</h3>
+        <p class="metric-value">${{ totalSales }}</p>
+        <p class="metric-label">Overall revenue</p>
+      </div>
     </div>
   </div>
 </div>

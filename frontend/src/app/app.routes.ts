@@ -5,12 +5,21 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AuthGuard } from './services/auth.guard';
 import { SalesComponent } from './pages/sales/sales.component';
 import { UsersComponent } from './pages/users/users.component';
+import { LayoutComponent } from './layout/layout.component';
 
 export const routes: Routes = [
-  { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
-  { path: 'sales', component: SalesComponent, canActivate: [AuthGuard] },
-  { path: 'users', component: UsersComponent, canActivate: [AuthGuard] },
+
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'users', component: UsersComponent },
+      { path: 'sales', component: SalesComponent },
+
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+    ],
+  },
 ];

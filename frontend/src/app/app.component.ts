@@ -1,16 +1,23 @@
 import { Component } from '@angular/core';
-import { RouterOutlet, Router, RouterLink, RouterLinkActive } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { Router, NavigationEnd, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive],
+  imports: [RouterOutlet], 
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  constructor(private router: Router) {}
+  showNavbar = true;
+
+  constructor(private router: Router) {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.showNavbar = !(event.url.startsWith('/login') || event.url.startsWith('/signup'));
+      }
+    });
+  }
 
   logout() {
     localStorage.removeItem('token');
