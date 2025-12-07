@@ -39,7 +39,6 @@ export class SignupComponent {
           alert(res?.message || 'Signup successful');
           this.loading = false;
 
-          // after signup, redirect to login
           this.router.navigate(['/login']);
         },
         error: (err) => {

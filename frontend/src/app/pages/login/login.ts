@@ -30,7 +30,6 @@ export class LoginComponent {
       next: (res: any) => {
         console.log('Login Response:', res);
 
-        // token is saved automatically inside AuthService (tap())
         alert('Login Successful!');
         this.router.navigate(['/dashboard']);
 

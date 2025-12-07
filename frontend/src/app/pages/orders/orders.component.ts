@@ -7,10 +7,9 @@ import { AdminService } from '../../services/admin';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './orders.component.html',
-  styleUrls: ['./orders.component.css']
+  styleUrls: ['./orders.component.css'],
 })
 export class OrdersComponent implements OnInit {
-
   orders: any[] = [];
 
   constructor(private admin: AdminService) {}
@@ -18,13 +17,13 @@ export class OrdersComponent implements OnInit {
   ngOnInit() {
     this.admin.getAllOrders().subscribe({
       next: (res: any) => {
-        console.log("ORDERS RESPONSE:", res);
-        this.orders = res.orders;   // backend must return { orders: [] }
+        console.log('ORDERS RESPONSE:', res);
+        this.orders = res.orders;
       },
 
       error: (err) => {
-        console.error("Orders Error:", err);
-      }
+        console.error('Orders Error:', err);
+      },
     });
   }
 }
