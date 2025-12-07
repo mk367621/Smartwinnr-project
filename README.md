@@ -3,9 +3,10 @@
 ## Tech Stack-
 
     Backend:Node.js, Express.js
+    Frontend: Angular
     Database: MongoDB
     Authentication: JWT, bcrypt
-    Other Libraries: dotenv
+    Other Libraries: dotenv, mongoose
 
 ## Backend used-
 
@@ -14,7 +15,7 @@
     MongoDB v8.0.16
     Postman for testing
 
-## Setup instructions-
+## Backend Setup instructions-
 
 # 1. Clone the repository:
 
@@ -35,7 +36,7 @@
 
         npm run start (or) node server.js
 
-# 5. Test APIs using Postman or similar:
+# 5. Test APIs using Postman:
 
         POST /signup → register user
 
@@ -44,3 +45,37 @@
         GET /profile → view authenticated user profile
 
         Admin-only routes: /stats/total-users, /stats/total-orders, /metrics
+
+# 6. Backend will run at:
+
+        http://localhost:3000
+
+## Frontend setup instructions-
+
+# 1. Navigate to frontend folder:
+
+        cd frontend
+
+# 2. Install dependencies:
+
+        npm install
+
+# 3. Run Angular:
+
+        ng serve
+
+# 4. Frontend will run at:
+
+        http://localhost:4200
+
+## Test Login Credentials-
+
+# 1. Admin Account
+
+        Email: john@test.com
+        Password: 123456
+
+# 2. Normal User Account
+
+        Email: user5@test.com
+        Password: 1234
